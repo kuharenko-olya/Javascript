@@ -1,12 +1,18 @@
 // 1.
 const myName = 'Olya';
 let name = 'Olya';
-myName = 'Kate';
+//myName = 'Kate';
 name = 'Sasha';
+
+//2.
+let user;
+let superUser;
+let activeUsersList;
+let isActiveUser;
 
 
 //3.
-let numbers = [1, 2, 3, 4, 5];
+let numbersArray = [1, 2, 3, 4, 5];
 let apple = {
     price: 100,
     product: 'Apple',
