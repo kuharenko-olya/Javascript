@@ -1,7 +1,11 @@
 //1.
 
 function changeRegisterWords(word) {
-    return word.toUpperCase();
+    let wordsArray = word.split(' ');
+    for (let i = 0; i < wordsArray.length; i++) {
+        wordsArray[i] = wordsArray[i][0].toUpperCase() + wordsArray[i].substring(1);
+    }
+    return wordsArray.join(' ');
 }
 
 console.log(changeRegisterWords('hello world'));
@@ -64,19 +68,13 @@ console.log(printTheNumberOfLetters('aabbbccccd'));
 function countEvenAndOddNumbers(data) {
     const evenNumbers = data.filter(num => {
         return num % 2 === 0;
-    })
-    const countEvenNumbers = evenNumbers.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
-    }, 0)
+    }).length
 
     const oddNumbers = data.filter(num => {
         return num % 2 === 1;
-    })
-    const countOddNumbers = oddNumbers.reduce((accumulator, currentValue) => {
-        return accumulator + currentValue;
-    }, 0)
+    }).length
 
-    return `${countEvenNumbers}, ${countOddNumbers}`;
+    return `${evenNumbers}, ${oddNumbers}`;
 }
 
 console.log(countEvenAndOddNumbers([1, 2, 3, 4, NaN, 0, 5, 10]));
@@ -91,6 +89,9 @@ function convert(currency, amount) {
             break;
         case 'EUR':
             rate = 35;
+            break;
+        default:
+            rate = 100;
             break;
     }
     let result = amount / rate;
@@ -124,4 +125,5 @@ function trim(string, end) {
     const partOfText = string.slice(0, end);
     return partOfText.length < string.length ? partOfText + '...' : partOfText;
 }
+
 console.log(trim('hello world', 3));
