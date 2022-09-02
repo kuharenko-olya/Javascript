@@ -18,7 +18,7 @@ try {
 
 //2.
 
-if (user && user?.cart && user?.cart[0]?.price) {
+if (user?.cart[0]?.price) {
     console.log('price', user.cart[0].price);
 } else {
     console.log('No data')
