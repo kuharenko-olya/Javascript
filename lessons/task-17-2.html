@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>Важная информация</div>
+<div>Неважная информация</div>
+<ul>
+    <li data-id="woman">Jane</li>
+    <li data-id="man">Bob</li>
+    <li data-id="woman">Kate</li>
+    <li data-id="woman">Mary</li>
+</ul>
+<script>
+    let element = document.getElementsByTagName('div')[0];
+    console.log(element);
+    let elem = document.querySelector('div');
+    console.log(elem);
+    let elem3 = document.body.firstElementChild;
+    console.log(elem3);
+    let elem4 = document.body.children[0];
+    console.log(elem4);
+    let womanNames = document.querySelectorAll('[data-id="woman"]');
+    console.log(womanNames);
+</script>
+</body>
+</html>
