@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Event</title>
+</head>
+<body oncontextmenu="return false">
+<button id="first-btn">First</button>
+<button id="secondary-btn" disabled>Secondary</button>
+<br>
+
+<button id="counter" style="margin-top: 10px">Click</button>
+<p id="numberClicksLeftMouse">Number of clicks of the left mouse button: <span></span></p>
+<p id="numberClicksRightMouse">Number of clicks of the right mouse button: <span></span></p>
+
+<div id="square" style="margin-top: 10px;width: 30px; height: 30px;background-color: blue"></div>
+
+<script>
+    let firstBtn = document.querySelector('#first-btn');
+    let secondaryBtn = document.querySelector('#secondary-btn');
+
+    //1.
+
+    firstBtn.addEventListener('click', function () {
+        secondaryBtn.removeAttribute('disabled');
+        firstBtn.setAttribute('disabled', 'true');
+    })
+
+    secondaryBtn.addEventListener('click', function () {
+        secondaryBtn.setAttribute('disabled', 'true');
+        firstBtn.removeAttribute('disabled');
+    })
+
+
+    //2.
+    let counter = document.querySelector('#counter');
+    let countClicksLeftMouse = 1;
+    let countClicksRightMouse = 1;
+    counter.addEventListener("mousedown", function (event) {
+        if (event.which === 1) {
+            let numberClicksLeftMouse = document.querySelector('#numberClicksLeftMouse span');
+            numberClicksLeftMouse.textContent = countClicksLeftMouse++;
+        } else if (event.which === 3) {
+            let numberClicksRightMouse = document.querySelector('#numberClicksRightMouse span');
+            numberClicksRightMouse.textContent = countClicksRightMouse++;
+        }
+    });
+
+    //3.
+    let square = document.querySelector('#square');
+
+    function changeColorRed() {
+        square.style.backgroundColor = 'red';
+    }
+
+    function changeColorBlue() {
+        square.style.backgroundColor = 'blue';
+    }
+
+    square.addEventListener('mouseover', changeColorRed);
+    square.addEventListener('mouseout', changeColorBlue);
+</script>
+</body>
+</html>
