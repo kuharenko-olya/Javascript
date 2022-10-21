@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #square {
+            background-color: #00B2FF;
+            width: 250px;
+            height: 250px;
+            cursor: crosshair;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            margin-right: -50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .hide {
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+
+<div id="square" draggable="true"></div>
+<script>
+    let element = document.getElementById('square');
+
+    element.addEventListener('dblclick', function () {
+        element.classList.add('center');
+    });
+
+
+    const dragStart = function () {
+        // console.log('dragstart');
+        setTimeout(() => {
+            this.classList.add('hide');
+        }, 0)
+
+    }
+    const dragEnd = function () {
+        this.classList.remove('hide');
+
+        element.style.position = "absolute";
+        element.style.left = event.pageX + 'px';
+        element.style.top = event.pageY + 'px';
+    }
+
+    const dragOver = function (event) {
+        console.log(event.pageX, event.pageY);
+        element.style.position = "absolute";
+        element.style.left = event.pageX + 'px';
+        element.style.top = event.pageY + 'px';
+    }
+
+    const dragAndDrop = () => {
+        element.addEventListener('dragstart', dragStart);
+        element.addEventListener('dragend', dragEnd);
+        element.addEventListener('drag', dragOver);
+
+    }
+
+    dragAndDrop();
+
+</script>
+</body>
+</html>
