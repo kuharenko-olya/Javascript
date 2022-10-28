@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+
+        #container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        #sections {
+            margin-top: 100px;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+
+        #sections section {
+            margin-right: 165px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .title {
+            font-size: 20px;
+        }
+
+        .input {
+            width: 200px;
+            margin-top: 35px;
+            padding: 10px 0;
+        }
+
+        button {
+            cursor: pointer;
+        }
+
+        .result {
+            display: flex;
+            flex-direction: column;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">
+    <div id="sections">
+        <section>
+            <span class="title">Create an entry in Local Storage</span>
+            <form action="#">
+                <input id="inputLocal" class="input" type="text">
+                <button onclick="saveLocal()">Save</button>
+            </form>
+            <span id="resultFromLocalStorage"></span>
+        </section>
+        <section>
+            <span class="title">Create an entry in Session Storage</span>
+            <form action="#">
+                <input id="inputSession" class="input" type="text">
+                <button onclick="saveSession()">Save</button>
+            </form>
+            <span id="resultFromSessionStorage"></span>
+        </section>
+    </div>
+</div>
+<script>
+    function saveLocal() {
+        let inputLocal = document.getElementById('inputLocal').value;
+        localStorage.setItem('key' + localStorage.length, inputLocal);
+        showValueLocal();
+    }
+
+    function showValueLocal() {
+        let resultLocal = document.getElementById('resultFromLocalStorage');
+        let keys = Object.keys(localStorage);
+        let markup = '<div class="result">';
+        for (let key of keys) {
+            markup += `<div><span>${localStorage.getItem(key)}</span> <button onclick="removeLocal('${key}')">Remove</button></div>`
+        }
+        markup += '</div>'
+        resultLocal.innerHTML = markup;
+    }
+
+
+    function removeLocal(key) {
+        localStorage.removeItem(key);
+        showValueLocal();
+    }
+
+
+    function saveSession() {
+        let inputSession = document.getElementById('inputSession').value;
+        sessionStorage.setItem('key' + sessionStorage.length, inputSession);
+        showValueSession();
+    }
+
+    function showValueSession() {
+        let resultSession = document.getElementById('resultFromSessionStorage');
+        let keys = Object.keys(sessionStorage);
+        let markup = '<div class="result">';
+        for (let key of keys) {
+            markup += `<div><span>${sessionStorage.getItem(key)}</span> <button onclick="removeSession('${key}')">Remove</button></div>`
+        }
+        markup += '</div>'
+        resultSession.innerHTML = markup;
+    }
+
+    function removeSession(key) {
+        sessionStorage.removeItem(key);
+        showValueSession();
+    }
+
+
+</script>
+</body>
+</html>
