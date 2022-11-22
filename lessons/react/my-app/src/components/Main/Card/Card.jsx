@@ -1,7 +1,6 @@
 import styles from './Card.module.scss'
 
 const Card = (props) => {
-    console.log(props.title)
     return (
         <div className={styles.card}>
             <div className={styles['image-product']}>

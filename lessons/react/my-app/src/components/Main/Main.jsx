@@ -1,8 +1,16 @@
 import styles from './Main.module.scss'
 import Card from "./Card/Card";
-import {products} from "./products";
+import {useState, useEffect} from "react";
 
 const Main = () => {
+    const [products, setProducts] = useState([]);
+
+    useEffect(() => {
+        fetch('http://127.0.0.1:4000/products')
+                .then((response) => response.json())
+                .then((products) => setProducts(products))
+    }, [])
+
     return (
         <div className={styles.container}>
             <main className={styles.main}>

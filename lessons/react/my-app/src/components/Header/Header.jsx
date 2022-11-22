@@ -1,4 +1,4 @@
-import Logo from '../../assets/img/logo-white-mafia.svg';
+import Logo from '../../assets/img/logo.svg';
 import {menu} from './menu';
 
 import DefaultButton from '../Buttons/default-button';
