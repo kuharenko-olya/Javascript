@@ -5,8 +5,8 @@
   background-color: #000;
   padding: 20px 25px;
 
-  .logo {
-    width: 400px;
+  nav {
+    width: 440px;
   }
 
   .menu {
@@ -21,6 +21,12 @@
       font-size: 16px;
       color: #fff;
     }
+  }
+
+  .check-order {
+    width: 440px;
+    display: flex;
+    justify-content: end;
   }
 
   .btn {

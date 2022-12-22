@@ -1,11 +1,9 @@
 import Logo from '../../assets/img/logo.svg';
 import {menu} from './menu';
-
 import DefaultButton from '../Buttons/default-button';
-
 import styles from './Header.module.scss';
 
-const Header = () => {
+export default function Header() {
     return (
         <header className={styles.header}>
             <nav>
@@ -20,9 +18,9 @@ const Header = () => {
             <a className={styles.logo} href='#'>
                 <img src={Logo} alt='logo'/>
             </a>
-            <DefaultButton/>
+            <div className={styles['check-order']}>
+                <DefaultButton/>
+            </div>
         </header>
     )
 }
-
-export default Header

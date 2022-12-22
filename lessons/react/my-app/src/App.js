@@ -1,16 +1,18 @@
 import Header from './components/Header/Header';
-import Main from "./components/Main/Main";
+import MainClass from "./components/Main/MainClass";
 import Footer from "./components/Footer/Footer";
+import {ActivityChecker} from "./components/Main/ActivityChecker";
 
 
-function App() {
+export default function App() {
+
     return (
         <div>
             <Header/>
-            <Main></Main>
+            <ActivityChecker></ActivityChecker>
+            <MainClass></MainClass>
             <Footer/>
         </div>
     )
 }
 
-export default App;

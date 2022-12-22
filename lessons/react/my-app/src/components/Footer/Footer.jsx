@@ -14,7 +14,7 @@ const Footer = () => {
                             <img src={Logo} alt='logo'/>
                         </a>
                         <div className={styles.copyright}>
-                            <span>© 2002 - 2022 MAFIA</span>
+                            <span>© 2005 - 2022 Pizza</span>
                             <span>Все права защищены.</span>
                         </div>
                     </div>
